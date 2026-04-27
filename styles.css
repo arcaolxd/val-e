@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Gloria+Hallelujah&display=swap');
+
+:root {
+    --pencil-blue: #003399;
+    --pencil-red: #cc0000;
+    --paper-bg: #ffffff;
+    --line-color: #e0e0ff;
+    --margin-color: #ffcccc;
+}
+
+.stApp {
+    background-color: var(--paper-bg);
+    background-image: 
+        linear-gradient(var(--line-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-attachment: fixed;
+}
+
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 60px;
+    width: 2px;
+    height: 100%;
+    background-color: var(--pencil-red);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+h1, h2, h3, .stHeader {
+    font-family: 'Gloria Hallelujah', cursive !important;
+    color: var(--pencil-red) !important;
+}
+
+p, span, label, .stMarkdown {
+    font-family: 'Indie Flower', cursive !important;
+    color: var(--pencil-blue) !important;
+    font-size: 1.2rem !important;
+}
+
+/* Custom styles for high priority tags */
+.priority-high {
+    color: var(--pencil-red) !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Irregular border buttons */
+.stButton > button {
+    font-family: 'Gloria Hallelujah', cursive !important;
+    background-color: transparent !important;
+    color: var(--pencil-blue) !important;
+    border: 2px solid var(--pencil-blue) !important;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.stButton > button:hover {
+    transform: rotate(-1deg) scale(1.05);
+    background-color: rgba(0, 51, 153, 0.05) !important;
+    border-color: var(--pencil-red) !important;
+    color: var(--pencil-red) !important;
+}
+
+/* Paper scrap cards */
+.paper-scrap {
+    background: #fffef0;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    transform: rotate(calc(var(--rotation) * 1deg));
+    border-radius: 2px;
+    position: relative;
+    font-family: 'Indie Flower', cursive;
+}
+
+.paper-scrap::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 40px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(-50%);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.warning-card {
+    background: #fff9c4 !important;
+    border: 2px dashed #fbc02d !important;
+}
+
+.hidden-details {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 10px;
+    border-top: 1px dashed #ccc;
+    padding-top: 5px;
+}

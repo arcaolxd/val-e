@@ -1,0 +1,16 @@
+# Firebase Key
+firebase-key.json
+
+# Streamlit
+.streamlit/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
+
+# SQLite (obsolete)
+vale_school.db
