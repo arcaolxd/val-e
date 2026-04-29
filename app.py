@@ -2,6 +2,7 @@ import streamlit as st
 import database
 import os
 import random
+import firebase_auth
 
 # Page configuration
 st.set_page_config(page_title="Val-e | Denuncias Escolares", page_icon="📝", layout="wide")
@@ -87,9 +88,7 @@ elif view == "✍️ Enviar Val-e":
     
     if not st.session_state.user_email:
         st.warning("Para cuidar la integridad de la red, regístrate de forma segura.")
-        if st.button("🔴 Entrar con Google (Protegido)"):
-            st.session_state.user_email = "usuario_demo@gmail.com"
-            st.rerun()
+        firebase_auth.show_google_login_button()
     else:
         st.info(f"Conectado como parte de la red: {st.session_state.user_email}")
         
@@ -125,9 +124,7 @@ elif view == "📋 Mis Val-es":
     st.markdown("Revisa el camino que han seguido tus mensajes.")
     if not st.session_state.user_email:
         st.warning("Inicia sesión para ver tus denuncias.")
-        if st.button("🔴 Iniciar Sesión con Google"):
-            st.session_state.user_email = "usuario_demo@gmail.com"
-            st.rerun()
+        firebase_auth.show_google_login_button()
     else:
         st.write(f"Aquí puedes ver el historial de denuncias enviadas desde **{st.session_state.user_email}**")
         all_reports = database.get_denuncias()
